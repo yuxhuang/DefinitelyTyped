@@ -25,7 +25,7 @@ interface JQueryAjaxSettings {
     cache?: boolean;
     complete? (jqXHR: JQueryXHR, textStatus: string);
     contents?: { [key: string]: any; };
-    contentType?: string;
+    contentType?: any;
     context?: any;
     converters?: { [key: string]: any; };
     crossDomain?: boolean;
