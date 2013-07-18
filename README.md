@@ -157,6 +157,7 @@ List of Definitions
 * [Sammy.js](http://sammyjs.org/) (by [Boris Yankov](https://github.com/borisyankov))
 * [Select2](http://ivaynberg.github.com/select2/) (by [Boris Yankov](https://github.com/borisyankov))
 * [Sencha Touch](http://www.sencha.com/products/touch/) (by [Brian Kotek](https://github.com/brian428))
+* [SharePoint](http://sptypescript.codeplex.com) (by [Stanislav Vyshchepan](http://gandjustas.blogspot.ru) and [Andrey Markeev](http://markeev.com))
 * [SignalR](http://www.asp.net/signalr) (by [Boris Yankov](https://github.com/borisyankov))
 * [Sinon](http://sinonjs.org/) (by [William Sears](https://github.com/mrbigdog2u))
 * [socket.io](http://socket.io) (by [William Orr](https://github.com/worr))
@@ -199,3 +200,4 @@ Requested Definitions
 * [MooTools](http://mootools.net/)
 * [Lo-Dash](http://lodash.com/)
 * [java](https://github.com/nearinfinity/node-java)
+* [SVG.js](http://www.svgjs.com/)
