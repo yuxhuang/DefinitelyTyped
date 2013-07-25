@@ -170,7 +170,7 @@ function test_bindings() {
     ko.bindingHandlers.slideVisible = {
         update: function (element, valueAccessor, allBindingsAccessor) {
             var value = valueAccessor(), allBindings = allBindingsAccessor();
-            var valueUnwrapped = ko.utils.unwrapObservable(value);
+            var valueUnwrapped = ko.unwrap(value);
             var duration = allBindings.slideDuration || 400;
             if (valueUnwrapped == true)
                 $(element).slideDown(duration);
@@ -178,7 +178,7 @@ function test_bindings() {
                 $(element).slideUp(duration);
         },
         init: function (element, valueAccessor) {
-            var value = ko.utils.unwrapObservable(valueAccessor());
+            var value = ko.unwrap(valueAccessor());
             $(element).toggle(value);
         },
         update: function (element, valueAccessor, allBindingsAccessor) {
@@ -197,7 +197,7 @@ function test_bindings() {
         },
         update: function (element, valueAccessor) {
             var value = valueAccessor();
-            if (ko.utils.unwrapObservable(value))
+            if (ko.unwrap(value))
                 element.focus();
             else
                 element.blur();
@@ -205,7 +205,7 @@ function test_bindings() {
     };
     ko.bindingHandlers.allowBindings = {
         init: function (elem, valueAccessor) {
-            var shouldAllowBindings = ko.utils.unwrapObservable(valueAccessor());
+            var shouldAllowBindings = ko.unwrap(valueAccessor());
             return { controlsDescendantBindings: !shouldAllowBindings };
         }
     };
@@ -409,7 +409,7 @@ function test_more() {
             var allItems = this(), matchingItems = [];
             for (var i = 0; i < allItems.length; i++) {
                 var current = allItems[i];
-                if (ko.utils.unwrapObservable(current[propName]) === matchValue)
+                if (ko.unwrap(current[propName]) === matchValue)
                     matchingItems.push(current);
             }
             return matchingItems;
@@ -484,7 +484,7 @@ function test_mappingplugin() {
     var obj;
     var result = ko.mapping.fromJS(obj, {
         key: function (item) {
-            return ko.utils.unwrapObservable(item.id);
+            return ko.unwrap(item.id);
         }
     });
 
@@ -545,7 +545,7 @@ function test_misc() {
             var args = arguments;
             ko.computed({
                 read: function () {
-                    ko.utils.unwrapObservable(valueAccessor());
+                    ko.unwrap(valueAccessor());
                     ko.bindingHandlers.options.update.apply(this, args);
                 },
                 owner: this,

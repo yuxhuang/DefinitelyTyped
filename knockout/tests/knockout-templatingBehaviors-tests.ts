@@ -513,7 +513,7 @@ describe('Templating', function() {
     it('Data binding \'foreach\' option should update DOM nodes when a dependency of their mapping function changes', function() {
         var myObservable = ko.observable("Steve");
         var myArray = ko.observableArray([{ personName: "Bob" }, { personName: myObservable }, { personName: "Another" }]);
-        ko.setTemplateEngine(new dummyTemplateEngine({ itemTemplate: "<div>The item is [js: ko.utils.unwrapObservable(personName)]</div>" }));
+        ko.setTemplateEngine(new dummyTemplateEngine({ itemTemplate: "<div>The item is [js: ko.unwrap(personName)]</div>" }));
         testNode.innerHTML = "<div data-bind='template: { name: \"itemTemplate\", foreach: myCollection }'></div>";
 
         ko.applyBindings({ myCollection: myArray }, testNode);
@@ -560,7 +560,7 @@ describe('Templating', function() {
     it('Data binding \'foreach\' option should stop tracking inner observables when the container node is removed', function() {
         var innerObservable = ko.observable("some value");
         var myArray = ko.observableArray([{obsVal:innerObservable}, {obsVal:innerObservable}]);
-        ko.setTemplateEngine(new dummyTemplateEngine({ itemTemplate: "The item is [js: ko.utils.unwrapObservable(obsVal)]" }));
+        ko.setTemplateEngine(new dummyTemplateEngine({ itemTemplate: "The item is [js: ko.unwrap(obsVal)]" }));
         testNode.innerHTML = "<div data-bind='template: { name: \"itemTemplate\", foreach: myCollection }'></div>";
 
         ko.applyBindings({ myCollection: myArray }, testNode);
@@ -573,7 +573,7 @@ describe('Templating', function() {
     it('Data binding \'foreach\' option should stop tracking inner observables related to each array item when that array item is removed', function() {
         var innerObservable = ko.observable("some value");
         var myArray = ko.observableArray([{obsVal:innerObservable}, {obsVal:innerObservable}]);
-        ko.setTemplateEngine(new dummyTemplateEngine({ itemTemplate: "The item is [js: ko.utils.unwrapObservable(obsVal)]" }));
+        ko.setTemplateEngine(new dummyTemplateEngine({ itemTemplate: "The item is [js: ko.unwrap(obsVal)]" }));
         testNode.innerHTML = "<div data-bind='template: { name: \"itemTemplate\", foreach: myCollection }'></div>";
 
         ko.applyBindings({ myCollection: myArray }, testNode);

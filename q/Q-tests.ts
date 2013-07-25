@@ -53,7 +53,7 @@ Q.fcall(function () { })
         // Handle any error from step1 through step4
     }).done();
 
-Q.allResolved([])
+Q.all([])
 .then(function (promises: Q.Promise<any>[]) {
     promises.forEach(function (promise) {
         if (promise.isFulfilled()) {
