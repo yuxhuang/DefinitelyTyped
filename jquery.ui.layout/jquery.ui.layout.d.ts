@@ -3,8 +3,8 @@
 // Definitions by: Steve Fenton <https://github.com/Steve-Fenton>
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
-/// <reference path="./jquery/jquery.d.ts"/>
-/// <reference path="./jquery/jquery.ui.d.ts"/>
+/// <reference path="../jquery/jquery.d.ts"/>
+/// <reference path="../jqueryui/jqueryui.d.ts"/>
 
 interface JQueryLayoutOptions {
     north: any;
@@ -21,7 +21,7 @@ interface JQueryLayout {
     toggle(pane: any): any;
     open(pane: any): any;
     close(pane: any): any;
-    show(pane: any, openPane?: bool): any;
+    show(pane: any, openPane?: boolean): any;
     hide(pane: any): any;
     sizePane(pane: any, sizeInPixels: number): any;
     resizeContent(pane: any): any;

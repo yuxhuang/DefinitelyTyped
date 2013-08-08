@@ -298,8 +298,6 @@ interface KnockoutUtils {
 
     setElementName(element: any, name: string): void;
 
-    ensureSelectElementIsRenderedCorrectly(selectElement);
-
     forceRefresh(node: any): void;
 
     ensureSelectElementIsRenderedCorrectly(selectElement: any): void;
@@ -405,6 +403,7 @@ interface KnockoutStatic {
     cleanNode(node: Element);
     renderTemplate(template: Function, viewModel: any, options?: any, target?: any, renderMode?: any);
     renderTemplate(template: string, viewModel: any, options?: any, target?: any, renderMode?: any);
+    unwrap(value: any): any;
 
     //////////////////////////////////
     // templateSources.js
@@ -481,6 +480,17 @@ interface KnockoutStatic {
     /////////////////////////////////
 
     bindingProvider: any;
+
+    /////////////////////////////////
+    // selectExtensions.js
+    /////////////////////////////////
+
+    selectExtensions: {
+
+        readValue(element: any);
+
+        writeValue(element: any, value: any);
+    };
 }
 
 declare var ko: KnockoutStatic;
